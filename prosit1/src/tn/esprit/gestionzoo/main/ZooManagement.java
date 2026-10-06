@@ -1,9 +1,15 @@
+package tn.esprit.gestionzoo.main;
+
+import tn.esprit.gestionzoo.entities.Animal;
+import tn.esprit.gestionzoo.entities.Zoo;
+
 import java.util.Scanner;
 
 public class ZooManagement {
 
-    int nbrCages = 20;
-    String zooName = "my zoo";
+    // Prosit 1 - Instruction 1
+    private int nbrCages = 20;
+    private String zooName = "my zoo";
 
     public void afficherMessage() {
         System.out.println(zooName + " comporte " + nbrCages + " cages");
@@ -11,6 +17,8 @@ public class ZooManagement {
 
     public static void main(String[] args) {
 
+        // Prosit 1
+        /*
         // Instruction 1
         ZooManagement zoo = new ZooManagement();
         zoo.afficherMessage();
@@ -46,17 +54,20 @@ public class ZooManagement {
         // Instruction 3
         zoo.afficherMessage();
         scanner.close();
+        */
 
+        // Prosit 2
+        /*
         // Instruction 5
         Animal lion = new Animal();
-        lion.family = "Félin";
-        lion.name = "Lion";
-        lion.age = 5;
-        lion.isMammal = true;
+        lion.setFamily("Félin");
+        lion.setName("Lion");
+        lion.setAge(5);
+        lion.setMammal(true);
 
         Zoo myZoo = new Zoo();
-        myZoo.name = zoo.zooName;
-        myZoo.city = "Tunis";
+        myZoo.setName(zoo.zooName);
+        myZoo.setCity("Tunis");
 
         // Instructions 6 et 7
         Animal tigre = new Animal("Félin", "Tigre", 7, true);
@@ -73,7 +84,10 @@ public class ZooManagement {
         System.out.println();
         System.out.println(myZoo);
         System.out.println(lion);
+        */
 
+        // Prosit 3
+        /*
         // Instruction 10
         System.out.println();
         System.out.println("Ajout du lion    : " + myZoo.addAnimal(lion));
@@ -83,7 +97,7 @@ public class ZooManagement {
 
         // Instruction 11
         System.out.println();
-        System.out.println("Les animaux de " + myZoo.name + " :");
+        System.out.println("Les animaux de " + myZoo.getName() + " :");
         myZoo.displayAnimals();
 
         System.out.println();
@@ -131,7 +145,7 @@ public class ZooManagement {
 
         System.out.println();
         System.out.println("Animaux proposes     : " + pensionnaires.length);
-        System.out.println("Animaux acceptes     : " + friguia.nbrAnimals + " / " + Zoo.NBR_CAGES);
+        System.out.println("Animaux acceptes     : " + friguia.getNbrAnimals() + " / " + Zoo.NBR_CAGES);
         System.out.println("Friguia Park plein ? : " + friguia.isZooFull());
         Animal panthere = new Animal("Félin", "Panthère", 6, true);
         System.out.println("Ajout d'un 26e animal : " + friguia.addAnimal(panthere));
@@ -145,8 +159,42 @@ public class ZooManagement {
 
         // Instruction 15
         System.out.println();
-        System.out.println(myZoo.name + " est plein ? : " + myZoo.isZooFull());
+        System.out.println(myZoo.getName() + " est plein ? : " + myZoo.isZooFull());
         Zoo plusGrand = Zoo.comparerZoo(myZoo, friguia);
-        System.out.println("Le plus grand zoo : " + plusGrand.name + " (" + plusGrand.nbrAnimals + " animaux)");
+        System.out.println("Le plus grand zoo : " + plusGrand.getName() + " (" + plusGrand.getNbrAnimals() + " animaux)");
+        */
+
+        // Prosit 4
+
+        // Instruction 17
+        System.out.println("Prosit 4 : Instruction 17 ");
+        Zoo voliere = new Zoo("Volière de Tunis", "Tunis");
+        for (int i = 1; i <= Zoo.NBR_CAGES; i++) {
+            voliere.addAnimal(new Animal("Oiseau", "Perruche " + i, 1, false));
+        }
+        System.out.println("Oiseaux dans la volière : " + voliere.getNbrAnimals() + " / " + Zoo.NBR_CAGES);
+        System.out.println("Volière pleine ?        : " + voliere.isZooFull());
+        Animal canari = new Animal("Oiseau", "Canari", 2, false);
+        System.out.println("Ajout d'un canari       : " + voliere.addAnimal(canari));
+
+        // Instruction 18
+        System.out.println();
+        System.out.println("Prosit 4 : Instruction 18 ");
+        Animal chameau = new Animal("Camélidé", "Chameau", 10, true);
+        chameau.setAge(-4);
+        System.out.println("Âge du chameau après setAge(-4) : " + chameau.getAge());
+
+        Animal lionceau = new Animal("Félin", "Lionceau", -1, true);
+        System.out.println("Âge du lionceau créé avec -1    : " + lionceau.getAge());
+
+        Zoo belvedere = new Zoo("Belvédère", "Tunis");
+        belvedere.setName("");
+        System.out.println("Nom du zoo après setName(\"\")    : " + belvedere.getName());
+
+        belvedere.addAnimal(chameau);
+        System.out.println(belvedere.getName() + " (" + belvedere.getCity() + ") : " + belvedere.getNbrAnimals() + " animal");
+        System.out.println(chameau);
+
+        // Instruction 19 : packages entities et main
     }
 }
