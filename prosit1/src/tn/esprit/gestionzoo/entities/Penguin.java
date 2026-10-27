@@ -14,6 +14,11 @@ public class Penguin extends Aquatic {
         this.swimmingDepth = swimmingDepth;
     }
 
+    // Prosit 6 - Instruction 26
+    public void swim() {
+        System.out.println("This penguin is swimming.");
+    }
+
     // Prosit 5 - Instruction 23
     public String toString() {
         return "Penguin [family=" + getFamily() + ", name=" + getName() + ", age=" + getAge()

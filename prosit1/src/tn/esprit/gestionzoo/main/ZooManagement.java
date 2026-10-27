@@ -198,7 +198,8 @@ public class ZooManagement {
         */
 
         // Prosit 5
-
+        // depuis le Prosit 6, Aquatic est abstraite : new Aquatic() ne compile plus
+        /*
         // Instruction 21
         System.out.println("Prosit 5 : Instruction 21");
         Aquatic aquatic = new Aquatic();
@@ -230,5 +231,48 @@ public class ZooManagement {
         requin.swim();
         dauphin.swim();
         pingouin.swim();
+        */
+
+        // Prosit 6
+
+        // Instruction 25
+        System.out.println("Prosit 6 : Instruction 25");
+        Zoo salammbo = new Zoo("Aquarium de Salammbô", "Carthage");
+        Dolphin grandDauphin = new Dolphin("Delphinidé", "Grand dauphin", 12, true, "Mer", 35.0f);
+        Dolphin dauphinCommun = new Dolphin("Delphinidé", "Dauphin commun", 8, true, "Océan", 40.0f);
+        Penguin manchotEmpereur = new Penguin("Sphéniscidé", "Manchot empereur", 10, false, "Banquise", 535.0f);
+        Penguin manchotRoyal = new Penguin("Sphéniscidé", "Manchot royal", 7, false, "Banquise", 300.0f);
+        Penguin manchotAdelie = new Penguin("Sphéniscidé", "Manchot Adélie", 5, false, "Banquise", 175.0f);
+
+        salammbo.addAquaticAnimal(grandDauphin);
+        salammbo.addAquaticAnimal(dauphinCommun);
+        salammbo.addAquaticAnimal(manchotEmpereur);
+        salammbo.addAquaticAnimal(manchotRoyal);
+        salammbo.addAquaticAnimal(manchotAdelie);
+        System.out.println(salammbo.getName() + " : " + salammbo.getNbrAquaticAnimals() + " animaux aquatiques / " + Zoo.MAX_AQUATIC_ANIMALS);
+
+        // Instruction 26
+        System.out.println();
+        System.out.println("Prosit 6 : Instruction 26");
+        salammbo.swimAquaticAnimals();
+
+        // Instruction 27
+        System.out.println();
+        System.out.println("Prosit 6 : Instruction 27");
+        System.out.println("Profondeur maximale des pingouins : " + salammbo.maxPenguinSwimmingDepth() + " m");
+
+        // Instruction 28
+        System.out.println();
+        System.out.println("Prosit 6 : Instruction 28");
+        salammbo.displayNumberOfAquaticsByType();
+
+        // Instruction 31
+        System.out.println();
+        System.out.println("Prosit 6 : Instruction 31");
+        Dolphin copie = new Dolphin("Delphinidé", "Grand dauphin", 12, true, "Mer", 30.0f);
+        Dolphin autreHabitat = new Dolphin("Delphinidé", "Grand dauphin", 12, true, "Océan", 35.0f);
+        System.out.println("Même nom, âge et habitat : " + grandDauphin.equals(copie));
+        System.out.println("Même objet (==)          : " + (grandDauphin == copie));
+        System.out.println("Habitat différent        : " + grandDauphin.equals(autreHabitat));
     }
 }

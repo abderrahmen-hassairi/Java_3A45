@@ -5,6 +5,9 @@ public class Zoo {
     // Prosit 3 - Instruction 14
     public static final int NBR_CAGES = 25;
 
+    // Prosit 6 - Instruction 25
+    public static final int MAX_AQUATIC_ANIMALS = 10;
+
     // Prosit 2 - Instruction 5
     private Animal[] animals;
     private String name;
@@ -13,9 +16,14 @@ public class Zoo {
     // Prosit 3 - Instruction 10
     private int nbrAnimals;
 
+    // Prosit 6 - Instruction 25
+    private Aquatic[] aquaticAnimals;
+    private int nbrAquaticAnimals;
+
     // Prosit 2 - Instruction 7
     public Zoo() {
         this.animals = new Animal[NBR_CAGES];
+        this.aquaticAnimals = new Aquatic[MAX_AQUATIC_ANIMALS];
     }
 
     // Prosit 2 - Instruction 6
@@ -23,6 +31,7 @@ public class Zoo {
         setName(name);
         this.city = city;
         this.animals = new Animal[NBR_CAGES];
+        this.aquaticAnimals = new Aquatic[MAX_AQUATIC_ANIMALS];
     }
 
     // Prosit 4 - Instruction 18
@@ -48,6 +57,10 @@ public class Zoo {
 
     public int getNbrAnimals() {
         return nbrAnimals;
+    }
+
+    public int getNbrAquaticAnimals() {
+        return nbrAquaticAnimals;
     }
 
     // Prosit 2 - Instruction 8
@@ -112,6 +125,53 @@ public class Zoo {
             return z1;
         }
         return z2;
+    }
+
+    // Prosit 6 - Instruction 25
+    public void addAquaticAnimal(Aquatic aquatic) {
+        if (nbrAquaticAnimals >= MAX_AQUATIC_ANIMALS) {
+            System.out.println("Erreur : le zoo ne peut pas contenir plus de " + MAX_AQUATIC_ANIMALS + " animaux aquatiques.");
+        } else {
+            aquaticAnimals[nbrAquaticAnimals] = aquatic;
+            nbrAquaticAnimals = nbrAquaticAnimals + 1;
+        }
+    }
+
+    // Prosit 6 - Instruction 26
+    public void swimAquaticAnimals() {
+        for (int i = 0; i < nbrAquaticAnimals; i++) {
+            System.out.print(aquaticAnimals[i].getName() + " : ");
+            aquaticAnimals[i].swim();
+        }
+    }
+
+    // Prosit 6 - Instruction 27
+    public float maxPenguinSwimmingDepth() {
+        float max = 0;
+        for (int i = 0; i < nbrAquaticAnimals; i++) {
+            if (aquaticAnimals[i] instanceof Penguin) {
+                Penguin penguin = (Penguin) aquaticAnimals[i];
+                if (penguin.swimmingDepth > max) {
+                    max = penguin.swimmingDepth;
+                }
+            }
+        }
+        return max;
+    }
+
+    // Prosit 6 - Instruction 28
+    public void displayNumberOfAquaticsByType() {
+        int nbrDolphins = 0;
+        int nbrPenguins = 0;
+        for (int i = 0; i < nbrAquaticAnimals; i++) {
+            if (aquaticAnimals[i] instanceof Dolphin) {
+                nbrDolphins++;
+            } else if (aquaticAnimals[i] instanceof Penguin) {
+                nbrPenguins++;
+            }
+        }
+        System.out.println("Nombre de dauphins : " + nbrDolphins);
+        System.out.println("Nombre de pingouins : " + nbrPenguins);
     }
 
     // Prosit 2 - Instruction 9
