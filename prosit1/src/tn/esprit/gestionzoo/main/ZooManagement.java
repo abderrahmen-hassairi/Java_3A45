@@ -1,7 +1,6 @@
 package tn.esprit.gestionzoo.main;
 
-import tn.esprit.gestionzoo.entities.Animal;
-import tn.esprit.gestionzoo.entities.Zoo;
+import tn.esprit.gestionzoo.entities.*;
 
 import java.util.Scanner;
 
@@ -165,7 +164,7 @@ public class ZooManagement {
         */
 
         // Prosit 4
-
+        /*
         // Instruction 17
         System.out.println("Prosit 4 : Instruction 17 ");
         Zoo voliere = new Zoo("Volière de Tunis", "Tunis");
@@ -196,5 +195,40 @@ public class ZooManagement {
         System.out.println(chameau);
 
         // Instruction 19 : packages entities et main
+        */
+
+        // Prosit 5
+
+        // Instruction 21
+        System.out.println("Prosit 5 : Instruction 21");
+        Aquatic aquatic = new Aquatic();
+        Terrestrial terrestrial = new Terrestrial();
+        Dolphin dolphin = new Dolphin();
+        Penguin penguin = new Penguin();
+        System.out.println(aquatic);
+        System.out.println(terrestrial);
+        System.out.println(dolphin);
+        System.out.println(penguin);
+
+        // Instruction 22
+        Aquatic requin = new Aquatic("Poisson", "Requin", 12, false, "Océan");
+        Terrestrial elephant = new Terrestrial("Éléphantidé", "Éléphant", 15, true, 4);
+        Dolphin dauphin = new Dolphin("Delphinidé", "Dauphin", 9, true, "Mer", 35.0f);
+        Penguin pingouin = new Penguin("Sphéniscidé", "Pingouin", 4, false, "Banquise", 120.5f);
+
+        // Instruction 23
+        System.out.println();
+        System.out.println("Prosit 5 : Instruction 23");
+        System.out.println(requin);
+        System.out.println(elephant);
+        System.out.println(dauphin);
+        System.out.println(pingouin);
+
+        // Instruction 24
+        System.out.println();
+        System.out.println("Prosit 5 : Instruction 24");
+        requin.swim();
+        dauphin.swim();
+        pingouin.swim();
     }
 }
