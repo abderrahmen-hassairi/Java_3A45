@@ -1,9 +1,12 @@
 package tn.esprit.gestionzoo.entities;
 
+import tn.esprit.gestionzoo.exceptions.InvalidAgeException;
+import tn.esprit.gestionzoo.exceptions.ZooFullException;
+
 public class Zoo {
 
-    // Prosit 3 - Instruction 14
-    public static final int NBR_CAGES = 25;
+    // Prosit 3 - Instruction 14 / Prosit 7 - Instruction 33
+    public static final int NBR_CAGES = 3;
 
     // Prosit 6 - Instruction 25
     public static final int MAX_AQUATIC_ANIMALS = 10;
@@ -85,18 +88,22 @@ public class Zoo {
         return -1;
     }
 
-    // Prosit 3 - Instructions 10 et 12
-    public boolean addAnimal(Animal animal) {
-        // Prosit 4 - Instruction 17
+    // Prosit 3 - Instructions 10 et 12 / Prosit 7 - Instruction 32
+    public void addAnimal(Animal animal) throws ZooFullException, InvalidAgeException {
+        // Prosit 7 - Instruction 34
+        if (animal.getAge() < 0) {
+            throw new InvalidAgeException();
+        }
+        // Prosit 4 - Instruction 17 / Prosit 7 - Instruction 33
         if (isZooFull()) {
-            return false;
+            throw new ZooFullException();
         }
         if (searchAnimal(animal) != -1) {
-            return false;
+            System.out.println("L'animal " + animal.getName() + " est déjà dans le zoo.");
+        } else {
+            animals[nbrAnimals] = animal;
+            nbrAnimals = nbrAnimals + 1;
         }
-        animals[nbrAnimals] = animal;
-        nbrAnimals = nbrAnimals + 1;
-        return true;
     }
 
     // Prosit 3 - Instruction 13

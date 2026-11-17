@@ -1,6 +1,7 @@
 package tn.esprit.gestionzoo.main;
 
 import tn.esprit.gestionzoo.entities.*;
+import tn.esprit.gestionzoo.exceptions.*;
 
 import java.util.Scanner;
 
@@ -86,6 +87,7 @@ public class ZooManagement {
         */
 
         // Prosit 3
+        // depuis le Prosit 7, addAnimal est void et lève des exceptions : ce bloc ne compile plus
         /*
         // Instruction 10
         System.out.println();
@@ -164,6 +166,7 @@ public class ZooManagement {
         */
 
         // Prosit 4
+        // depuis le Prosit 7, addAnimal est void et lève des exceptions : ce bloc ne compile plus
         /*
         // Instruction 17
         System.out.println("Prosit 4 : Instruction 17 ");
@@ -234,7 +237,7 @@ public class ZooManagement {
         */
 
         // Prosit 6
-
+        /*
         // Instruction 25
         System.out.println("Prosit 6 : Instruction 25");
         Zoo salammbo = new Zoo("Aquarium de Salammbô", "Carthage");
@@ -274,5 +277,37 @@ public class ZooManagement {
         System.out.println("Même nom, âge et habitat : " + grandDauphin.equals(copie));
         System.out.println("Même objet (==)          : " + (grandDauphin == copie));
         System.out.println("Habitat différent        : " + grandDauphin.equals(autreHabitat));
+        */
+
+        // Prosit 7
+        /*
+        // Instructions 33 et 34
+        System.out.println("Prosit 7 : Instructions 33 et 34");
+        Zoo parcBelvedere = new Zoo("Parc du Belvédère", "Tunis");
+        Animal[] arrivees = {
+                new Animal("Félin", "Lion", 5, true),
+                new Animal("Canidé", "Loup", -3, true),
+                new Animal("Girafidé", "Girafe", 8, true),
+                new Animal("Équidé", "Zèbre", 6, true),
+                new Animal("Ursidé", "Panda", 4, true)
+        };
+
+        for (Animal animal : arrivees) {
+            try {
+                parcBelvedere.addAnimal(animal);
+                System.out.println(animal.getName() + " ajouté au zoo.");
+            } catch (InvalidAgeException e) {
+                System.out.println("Erreur pour " + animal.getName() + " : " + e.getMessage());
+            } catch (ZooFullException e) {
+                System.out.println("Erreur pour " + animal.getName() + " : " + e.getMessage());
+            } finally {
+                System.out.println("Nombre d'animaux : " + parcBelvedere.getNbrAnimals() + " / " + Zoo.NBR_CAGES);
+            }
+        }
+
+        System.out.println();
+        System.out.println("Le programme continue normalement. Animaux de " + parcBelvedere.getName() + " :");
+        parcBelvedere.displayAnimals();
+        */
     }
 }
