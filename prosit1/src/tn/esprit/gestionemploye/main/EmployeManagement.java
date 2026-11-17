@@ -1,5 +1,7 @@
 package tn.esprit.gestionemploye.main;
 
+import tn.esprit.gestionemploye.entities.Departement;
+import tn.esprit.gestionemploye.entities.DepartementHashSet;
 import tn.esprit.gestionemploye.entities.Employe;
 import tn.esprit.gestionemploye.entities.SocieteArrayList;
 
@@ -10,7 +12,7 @@ public class EmployeManagement {
     public static void main(String[] args) {
 
         // Prosit 8
-
+        /*
         // Partie III
         System.out.println("Prosit 8 : Partie III");
         SocieteArrayList societe = new SocieteArrayList();
@@ -57,5 +59,48 @@ public class EmployeManagement {
         for (Employe employe : informaticiens) {
             System.out.println(employe);
         }
+        */
+
+        // Prosit 9
+
+        // Partie III
+        System.out.println("Prosit 9 : Partie III");
+        DepartementHashSet departements = new DepartementHashSet();
+        Departement marketing = new Departement(4, "Marketing", 6);
+
+        departements.ajouterDepartement(new Departement(3, "Finance", 8));
+        departements.ajouterDepartement(new Departement(1, "Informatique", 12));
+        departements.ajouterDepartement(new Departement(5, "Ressources Humaines", 5));
+        departements.ajouterDepartement(marketing);
+        departements.ajouterDepartement(new Departement(2, "Logistique", 9));
+        departements.ajouterDepartement(new Departement(6, "Informatique", 4));
+
+        System.out.println("Ajout d'un doublon (même id et même nom) :");
+        departements.ajouterDepartement(new Departement(1, "Informatique", 15));
+
+        System.out.println();
+        System.out.println("Départements (HashSet, sans ordre) :");
+        departements.afficherDepartements();
+
+        System.out.println();
+        System.out.println("Recherche de \"Finance\"            : " + departements.rechercherDepartement("Finance"));
+        System.out.println("Recherche de \"Juridique\"          : " + departements.rechercherDepartement("Juridique"));
+        Departement copieFinance = new Departement(3, "Finance", 0);
+        System.out.println("Recherche de (3, Finance)         : " + departements.rechercherDepartement(copieFinance));
+        Departement autreNom = new Departement(3, "Marketing", 8);
+        System.out.println("Recherche de (3, Marketing)       : " + departements.rechercherDepartement(autreNom));
+
+        System.out.println();
+        departements.supprimerDepartement(marketing);
+        System.out.println("Après suppression de Marketing :");
+        System.out.println("Recherche de \"Marketing\"          : " + departements.rechercherDepartement("Marketing"));
+
+        System.out.println();
+        System.out.println("Tri par id :");
+        departements.trierDepartementsParId();
+
+        System.out.println();
+        System.out.println("Tri par nom, puis nombre d'employés :");
+        departements.trierDepartementsParNomEtNombreEmployes();
     }
 }
